@@ -1,57 +1,88 @@
+//game start
+$(document).ready(function() { 
+//computer generates a random number from 19-120
+var target = Math.floor(Math.random() * 101) + 19;
+// console.log(target);
+//this number s displayed on screen
+//as the number to match
+$("#target").text(target);
+//
+//begining count of user tally wins/losses. start at 0
+var wins = 0;
+var losses = 0;
+var score = 0;
+var crystal1 ;
+var crystal2 ;
+var crystal3 ;
+var crystal4 ;
+//display these values on screen
+//will update continuously with gameplay
+$("#wins").text("Wins: " + wins);
+$("#losses").text("Losses: " + losses);
+$("#score").text("Current Score: " + score);
+//function to assign values to each crystal on start
+// a random number value for each crystal button
+var newNumbers = function () {
+crystal1 = Math.floor(Math.random() * 11) + 1;
+// console.log(crystal1);
+crystal2 = Math.floor(Math.random() * 11) + 1;
+// console.log(crystal2);
+crystal3 = Math.floor(Math.random() * 11) + 1;
+// console.log(crystal3);
+crystal4 = Math.floor(Math.random() * 11) + 1;
+// console.log(crystal4);
+//comparison between each crystal to ensure none pull the same number
+//in any given round
+if (crystal2 === crystal1) {
+    crystal2 = Math.floor(Math.random() * 11) + 1;
+}
+if (crystal3 === crystal2 || 
+    crystal3 === crystal1) {
+    crystal3 = Math.floor(Math.random() * 11) + 1;
+}
+if (crystal4 === crystal3 || 
+    crystal4 === crystal2 || 
+    crystal4 === crystal1) {
+    crystal4 = Math.floor(Math.random() * 11) + 1;
+}
+}
+newNumbers ();
 
-// $(document).ready(function() {
-
-// })
-
-  //crystal colector game
-//on start, computer generates a random number 19-120 and populates in target display
-    
-      
-    $(document).ready(function() { 
-        //array of numbers 1-12 to be assiigned to each crystal at beggining of game. this number is hidden from the user
-    var crystalNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
-        // empty variables
-    var wins ;
-    var losses ;
-    var crystal1 = Math.floor(Math.random() * crystalNumbers.length) +1;
-    // alert(crystal1);
-    var crystal2 = Math.floor(Math.random() * crystalNumbers.length) +1;
-    // alert(crystal2);
-    var crystal3 = Math.floor(Math.random() * crystalNumbers.length) +1;
-    // alert(crystal3);
-    var crystal4 = Math.floor(Math.random() * crystalNumbers.length) +1;
-    // alert(crystal4);
-    var scoreCounter ;
-    //array of numbers 1-12 to be assiigned to each crystal at beggining of game. this number is hidden from the user
-    var crystalNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
-//on start, computer generates a random number 19-120 and populates in target display
-    var target = Math.floor(Math.random() * 101) + 19;
-        // console.log(target);
-        $("#target").text(target);
-
-        
-//button digit assignments are hidden form user
-//when button is clicked, associated number is displayed in user score display
+console.log(crystal1);
+console.log(crystal2);
+console.log(crystal3);
+//above does not see to be wrking for crystal4 - please resolve
+// console.log(crystal4);
 
 $(".crystal1").on("click", function (){
-    crystal1 = parseInt(crystal1);
-    $("#score").text(crystal1);
+    
+    // console.log(crystal1);
+    
 })
 
-$(".crystal2").on("click", function (){
-    crystal2 = parseInt(crystal2);
-    $("#score").text(crystal2);
-})
 
-$(".crystal3").on("click", function (){
-    crystal3 = parseInt(crystal3);
-    $("#score").text(crystal3);
-})
 
-$(".crystal4").on("click", function (){
-    crystal4 = parseInt(crystal4);
-    $("#score").text(crystal1);
-})
+
+
+// $(".crystal2").on("click", function (){
+//     crystal2 = parseInt(crystal2);
+//     $("#score").text(crystal2);
+//     // console.log(crystal2);
+// })
+
+// $(".crystal3").on("click", function (){
+//     crystal3 = parseInt(crystal3);
+//     $("#score").text(crystal3);
+//     // console.log(crystal3);
+// })
+
+// $(".crystal4").on("click", function (){
+//     crystal4 = parseInt(crystal4);
+//     $("#score").text(crystal4);
+//     // console.log(crystal4);
+// })
+
+
 //with each additional button click, associated number is added to 
 //user score and total is displayed
 //when user score matches target score
@@ -84,6 +115,6 @@ $(".crystal4").on("click", function (){
 // console.log(points);
 //
 
-    });
+    
 
 
