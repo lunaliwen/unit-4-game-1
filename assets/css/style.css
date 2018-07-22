@@ -1,0 +1,30 @@
+body,
+.background {
+    background-image: url(../images/gems2.jpg)
+}
+
+.display {
+    background-image: url(../images/gems.jpeg)
+}
+
+h1,
+h5,
+p {
+    text-align: center;
+}
+
+h1,
+h5 {
+    font-family: 'Noto Serif', sans-serif;
+    font-size: 300%;
+    color: deeppink;
+}
+
+p {
+    font-family: 'Karla', sans-serif;
+    background: antiquewhite;
+}
+
+h5 {
+    background: black;
+}

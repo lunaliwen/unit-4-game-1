@@ -7,51 +7,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Karla|Noto+Serif" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Document</title>
 </head>
-<body>
+<body class="background">
 
   
-<div class="container">
-  <div class="row">
-    <div class="column"><h1>Crystal Collector</h1></div>
-  </div>
-  <div class="row">
-    <div class="container">
+    <div class="jumbotron background">
+        <h1 class="display-4">Crystal Guess</h1>
+        <p class="lead">INSTRUCTIONS.<br>
+        Select a crystal below to reveal the hidden score. Use all of your crystals to match the target score and you are a winner. If you go over, though, you lose the round. Each round will generate new targets and hidden scores.</p>
+      </div>
+
       <div class="row">
-        <div class="column"><h2>Instructions</h2>
-        <p>1.</p>
-        <p>2.</p>
-        <p>3.</p>
-        <p>4.</p>
-        <p>5.</p>
-        </div>
-        <div class="column">
-          <div class="container">
-            <div class="row">
-              <div class="column crystal1" value="crystal1"><img src="assets/images/crystal-01.svg"></div>
-              <div class="column crystal2" value="crystal1"><button><img src="assets/images/crystal-01.svg"></button></div>
-              <div class="column crystal3" value="crystal1"><button><img src="assets/images/crystal-01.svg"></div>
-              <div class="column crystal4" value="crystal1"><button><img src="assets/images/crystal-01.svg"></div>
-            </div>
-            <div class="row">
-              <div id="target" class="column">target</div>
-              <div class="column">
-                <h4 id="wins"></h4>
-                <h4 id="losses"></h4>
-                <h4>You win/You lose</h4>
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body display">
+                <p class="card-text">Target Number</p>
+                <h5 class="card-title" id="target">0</h5>
               </div>
-              <div class="column" id="score"></div>
             </div>
+          </div>
+          <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body display">
+                  <p class="card-text">Wins</p>
+                  <h5 class="card-title" id="wins">0</h5>
+                  <p class="card-text">Losses</p>
+                  <h5 class="card-title"iid="losses">0</h5>
+                </div>
+              </div>
+            </div>
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body display">
+                <p class="card-text">Current Score</p> 
+                <h5 class="card-title" id="score">0</h5> 
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-</div>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3"><img src="assets/images/crystal-04.svg" class="rounded mx-auto d-block btn gemImages" id="crys1"></div>
+            <div class="col-sm-3"><img src="assets/images/crystal-01.svg" class="rounded mx-auto d-block btn gemImages" id="crys2"></div>
+            <div class="col-sm-3"><img src="assets/images/crystal-03.svg" class="rounded mx-auto d-block btn gemImages" id="crys3"></div>
+            <div class="col-sm-3"><img src="assets/images/crystal-02.svg" class="rounded mx-auto d-block btn gemImages" id="crys4"></div>
+          </div>
+        </div>
 
 <script src="assets/javascript/game.js"></script>
 </body>

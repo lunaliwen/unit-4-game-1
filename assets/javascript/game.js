@@ -1,63 +1,125 @@
 //game start
 $(document).ready(function() { 
-//computer generates a random number from 19-120
-var target = Math.floor(Math.random() * 101) + 19;
-// console.log(target);
-//this number s displayed on screen
-//as the number to match
-$("#target").text(target);
-//
+
 //begining count of user tally wins/losses. start at 0
 var wins = 0;
 var losses = 0;
 var score = 0;
-var crystal1 ;
-var crystal2 ;
-var crystal3 ;
-var crystal4 ;
+var crystal1 = 0;
+var crystal2 = 0;
+var crystal3 = 0;
+var crystal4 = 0;
 //display these values on screen
 //will update continuously with gameplay
-$("#wins").text("Wins: " + wins);
-$("#losses").text("Losses: " + losses);
-$("#score").text("Current Score: " + score);
+$("#wins").text(wins);
+$("#losses").text(losses);
+$("#score").text(score);
 //function to assign values to each crystal on start
 // a random number value for each crystal button
 var newNumbers = function () {
-crystal1 = Math.floor(Math.random() * 11) + 1;
+//computer generates a random number from 19-120
+target = Math.floor(Math.random() * 101) + 19;
+$("#target").text(target);
+// console.log(target);
+crystal1 = Math.floor(Math.random() * 12) + 1;
 // console.log(crystal1);
-crystal2 = Math.floor(Math.random() * 11) + 1;
+crystal2 = Math.floor(Math.random() * 12) + 1;
 // console.log(crystal2);
-crystal3 = Math.floor(Math.random() * 11) + 1;
+crystal3 = Math.floor(Math.random() * 12) + 1;
 // console.log(crystal3);
-crystal4 = Math.floor(Math.random() * 11) + 1;
+crystal4 = Math.floor(Math.random() * 12) + 1;
 // console.log(crystal4);
 //comparison between each crystal to ensure none pull the same number
 //in any given round
+//not working - please resolve below comparisons
 if (crystal2 === crystal1) {
-    crystal2 = Math.floor(Math.random() * 11) + 1;
+    crystal2 = Math.floor(Math.random() * 12) + 1;
 }
 if (crystal3 === crystal2 || 
     crystal3 === crystal1) {
-    crystal3 = Math.floor(Math.random() * 11) + 1;
+    crystal3 = Math.floor(Math.random() * 12) + 1;
 }
 if (crystal4 === crystal3 || 
     crystal4 === crystal2 || 
     crystal4 === crystal1) {
-    crystal4 = Math.floor(Math.random() * 11) + 1;
+    crystal4 = Math.floor(Math.random() * 12) + 1;
 }
 }
+//calls functon at start to assign numbers to crystals
 newNumbers ();
 
-console.log(crystal1);
-console.log(crystal2);
-console.log(crystal3);
-//above does not see to be wrking for crystal4 - please resolve
+// console.log(crystal1);
+// console.log(crystal2);
+// console.log(crystal3);
+// //above does not see to be wrking for crystal4 - please resolve
 // console.log(crystal4);
+//when crystals clicked
+//not working - please resolve
+$("#crys1").on("click", function() {
+    score = parseInt(score) + parseInt(crystal1);
+    $("#score").text(score);
+    console.log("user score is: " + score);
+    if (score == target) {
+        $("#wins").text(wins++);
+        console.log("winner");
+        newNumbers ();
+    } else if ( score > target) {
+        $("#losses").text(losses++);
+        console.log("loser");
+        newNumbers ();
+    }
+    
+})
+//
+$("#crys2").on("click", function() {
+    score = parseInt(score) + parseInt(crystal2);
+    $("#score").text(score);
+    console.log("user score is: " + score);
+    if (score == target) {
+        $("#wins").text(wins++);
+        console.log("winner");
+        newNumbers ();
+    } else if ( score > target) {
+        $("#losses").text(losses++);
+        console.log("loser");
+        newNumbers ();
+    }
+    
+})
+//
+$("#crys3").on("click", function() {
+    score = parseInt(score) + parseInt(crystal3);
+    $("#score").text(score);
+    console.log("user score is: " + score);
+    if (score == target) {
+        $("#wins").text(wins++);
+        console.log("winner");
+        newNumbers ();
+    } else if ( score > target) {
+        $("#losses").text(losses++);
+        console.log("loser");
+        newNumbers ();
+    }
+    
+})
+//
+$("#crys4").on("click", function() {
+    score = parseInt(score) + parseInt(crystal4);
+    $("#score").text(score);
+    console.log("user score is: " + score);
+    if (score == target) {
+        $("#wins").text(wins++);
+        console.log("winner");
+        newNumbers ();
+    } else if ( score > target) {
+        $("#losses").text(losses++);
+        console.log("loser");
+        newNumbers ();
+    }
+    
+})
 
-$(".crystal1").on("click", function (){
-    
-    // console.log(crystal1);
-    
+
 })
 
 
