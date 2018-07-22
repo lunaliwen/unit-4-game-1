@@ -22,9 +22,11 @@ h5 {
 
 p {
     font-family: 'Karla', sans-serif;
-    background: antiquewhite;
+    background: #fff4ef;
 }
 
 h5 {
-    background: black;
+    background: #201f1d;
+    width: 100px;
+    margin: 0 auto;
 }
