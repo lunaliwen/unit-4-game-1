@@ -9,7 +9,7 @@ var score = 0;
 
 //
 //fuction to define a random target number between 19-120
-newNumbers = function () {
+newTarget = function () {
 target = Math.floor(Math.random() * 101) + 19;
 $("#target").text(target);
 }
@@ -28,13 +28,64 @@ loser = function () {
     $("#score").text(score);
 }
 
+var rando = [];
+
+for (var j = 0; j < 4; j++) {
+    rando = Math.floor(Math.random() *12) + 1;
+}
+
 var crystals = ["assets/images/purple.png", "assets/images/yellow.png", "assets/images/pink.png", "assets/images/red.png"];
+
     for (var i = 0; i < crystals.length; i++) {
         var imageCrystal = $("<img>");
         imageCrystal.addClass("crystal-image");
         imageCrystal.attr("src", crystals[i]);
+        imageCrystal.attr("data-crystalvalue", rando[j]);
         $("#crystals").append(imageCrystal);
     }
+
+console.log(rando);
+    
+    
+    $(".crystal-image").on("click", function() {
+            var crystalValue = ($(this).attr("data-crystalvalue"));
+             crystalValue = parseInt(crystalValue);
+             score += crystalValue;
+             $("#score").text(score);
+    
+                 if (score == target) {
+                     winner();
+                     newTarget ();
+                 } else if ( score > target) {
+                     loser();
+                     newTarget ();
+                 }  
+
+    })
+
+    // console.log(crystalValue);
+    //     var crystalValue = ($(this).attr("data-crystalvalue"));
+    //     crystalValue = parseInt(crystalValue);
+    //     // We then add the crystalValue to the user's "counter" which is a global variable.
+    //     // Every click, from every crystal adds to the global counter.
+    //     $("#score").text(score);
+    
+    //     if (score == target) {
+    //         winner();
+    //         newTarget ();
+    //     } else if ( score > target) {
+    //         loser();
+    //         newTarget ();
+    //     }  
+
+    // })
+
+
+
+ 
+
+
+
 //when crystal1 is clicked, convert to integer and 
 //add to score integer & display total result on screen
 //compares score to target and adds a value to wins/loss tally - RESOLVE PLEASE
@@ -44,10 +95,10 @@ var crystals = ["assets/images/purple.png", "assets/images/yellow.png", "assets/
 //     $("#score").text(score);
 //     if (score == target) {
 //         winner();
-//         newNumbers ();
+//         newTarget ();
 //     } else if ( score > target) {
 //         loser();
-//         newNumbers ();
+//         newTarget ();
 //     }  
 // })
 //when crystal2 is clicked, convert to integer and 
@@ -97,7 +148,7 @@ var crystals = ["assets/images/purple.png", "assets/images/yellow.png", "assets/
 // })
 //FUNCTION CALLED
 //calls functon at page open to assign numbers to crystals
-newNumbers ();
+newTarget ();
 
 
-}) 
+})
