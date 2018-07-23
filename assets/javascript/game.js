@@ -5,31 +5,36 @@ $(document).ready(function() {
     var wins = 0;
     var losses = 0;
     var score = 0;
+    
  
     //fuction to define a random target number between 19-120
     newTarget = function () {
     target = Math.floor(Math.random() * 101) + 19;
     $("#target").text(target);
-    
-  
-   
     }
     var rando = [];
 
-    for (var j = 0; j < 4; j++) {
-        rando = Math.floor(Math.random() * 12) + 1;
-    }
+    // for (var j = 0; j < 4; j++) {
+    //     rando = Math.floor(Math.random() * 12) + 1;
+    // }
     
     var crystals = ["assets/images/purple.png", "assets/images/yellow.png", "assets/images/pink.png", "assets/images/red.png"];
-    
+    //function??
         for (var i = 0; i < crystals.length; i++) {
             var imageCrystal = $("<img>");
             imageCrystal.addClass("crystal-image");
             imageCrystal.attr("src", crystals[i]);
+            var rando = [];
+
+        for (var j = 0; j < 4; j++) {
+            rando = Math.floor(Math.random() * 12) + 1;
+        }
             imageCrystal.attr("data-crystalvalue", rando);
             $("#crystals").append(imageCrystal);
-        }
+
     
+        }
+        
     
      winner = function () {
         wins++;
