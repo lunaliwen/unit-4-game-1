@@ -1,2 +1,2 @@
-# unit-4-game
-unit-4-game
+# Crystal Collector Game
+![Alt text](/assets/images/CrystalGame.png?raw=true)
