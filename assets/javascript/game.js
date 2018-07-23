@@ -17,30 +17,16 @@ $(document).ready(function() {
     
     //FUNCTIONS DEFINED
     //function to assign a random number value for each crystal button 1-12
-    //
+    //Math.formulas adjusted to ensure no double picks
     //and a target number to reach 19-120
     var newNumbers = function () {
     target = Math.floor(Math.random() * 101) + 19;
     $("#target").text(target);
-    crystal1 = Math.floor(Math.random() * 12) + 1;
-    crystal2 = Math.floor(Math.random() * 12) + 1;
-    crystal3 = Math.floor(Math.random() * 12) + 1;
-    crystal4 = Math.floor(Math.random() * 12) + 1;
-    //PLEASE RESOLVE
-    //comparison between each crystal to ensure none pull the same number
-    //in any given round
-    if (crystal2 === crystal1) {
-        crystal2 = Math.floor(Math.random() * 12) + 1;
-    }
-    if (crystal3 === crystal2 || 
-        crystal3 === crystal1) {
-        crystal3 = Math.floor(Math.random() * 12) + 1;
-    }
-    if (crystal4 === crystal3 || 
-        crystal4 === crystal2 || 
-        crystal4 === crystal1) {
-        crystal4 = Math.floor(Math.random() * 12) + 1;
-    }
+    crystal1 = Math.ceil(Math.random() * 3);
+    crystal2 = Math.floor(Math.random() * 3) + 4;
+    crystal3 = Math.floor(Math.random() * 3) + 7;
+    crystal4 = Math.floor(Math.random() * 3) + 10;
+   
     }
     var winner = function () {
         wins++;

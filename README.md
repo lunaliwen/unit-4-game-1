@@ -1,6 +1,7 @@
 # Crystal Collector Game
 
 [Live Demo] (https://jessicahoward.github.io/unit-4-game/)
+
 ![Alt text](/assets/images/CrystalGame.png?raw=true)
 
 # Design Notes
