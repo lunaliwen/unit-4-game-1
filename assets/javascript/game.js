@@ -5,16 +5,33 @@ $(document).ready(function() {
     var wins = 0;
     var losses = 0;
     var score = 0;
-    //array for individual crystals
-    
-    //
+ 
     //fuction to define a random target number between 19-120
     newTarget = function () {
     target = Math.floor(Math.random() * 101) + 19;
     $("#target").text(target);
+    
+  
+   
     }
-    //function to up wins counter and reset score
-    winner = function () {
+    var rando = [];
+
+    for (var j = 0; j < 4; j++) {
+        rando = Math.floor(Math.random() * 12) + 1;
+    }
+    
+    var crystals = ["assets/images/purple.png", "assets/images/yellow.png", "assets/images/pink.png", "assets/images/red.png"];
+    
+        for (var i = 0; i < crystals.length; i++) {
+            var imageCrystal = $("<img>");
+            imageCrystal.addClass("crystal-image");
+            imageCrystal.attr("src", crystals[i]);
+            imageCrystal.attr("data-crystalvalue", rando);
+            $("#crystals").append(imageCrystal);
+        }
+    
+    
+     winner = function () {
         wins++;
         $("#wins").text(wins);
         score = 0;
@@ -26,26 +43,7 @@ $(document).ready(function() {
         $("#losses").text(losses);
         score = 0;
         $("#score").text(score);
-    }
-    
-    var rando = [];
-    
-    for (var j = 0; j < 4; j++) {
-        rando = Math.floor(Math.random() *12) + 1;
-    }
-    
-    var crystals = ["assets/images/purple.png", "assets/images/yellow.png", "assets/images/pink.png", "assets/images/red.png"];
-    
-        for (var i = 0; i < crystals.length; i++) {
-            var imageCrystal = $("<img>");
-            imageCrystal.addClass("crystal-image");
-            imageCrystal.attr("src", crystals[i]);
-            imageCrystal.attr("data-crystalvalue", rando[j]);
-            $("#crystals").append(imageCrystal);
-        }
-    
-    console.log(rando);
-        
+    }    
         
         $(".crystal-image").on("click", function() {
                 var crystalValue = ($(this).attr("data-crystalvalue"));
@@ -63,7 +61,7 @@ $(document).ready(function() {
     
         })
     
-        // console.log(crystalValue);
+        console.log(crystalValue);
         //     var crystalValue = ($(this).attr("data-crystalvalue"));
         //     crystalValue = parseInt(crystalValue);
         //     // We then add the crystalValue to the user's "counter" which is a global variable.
